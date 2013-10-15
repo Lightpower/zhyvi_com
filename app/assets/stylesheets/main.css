@@ -1,0 +1,57 @@
+div {
+    border: 1px solid black;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: url(/img/back.png);
+    background-size: 100%;
+}
+
+div#wrapper
+{
+    width: 1000px;
+    margin: 20px auto 0 auto;
+}
+
+div#left {
+    vertical-align: top;
+    display: inline-block;
+    width: 220px;
+    height: 100%;
+    margin-right: 20px;
+}
+
+div.top_div {
+    height: 450px;
+    margin-bottom: 16px;
+
+}
+
+div#header {
+}
+
+div#menu, div#sign_up {
+    margin-bottom: 16px;
+}
+
+div#main {}
+
+div#content {
+    vertical-align: top;
+    display: inline-block;
+    max-width: 790px;
+}
+
+div.image {
+    height: 160px;
+    vertical-align: middle;
+    background: url(/img/logo.jpg) no-repeat center;
+}
+
