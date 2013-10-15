@@ -15,7 +15,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: zhyvi_com_development
+  database: zhyvi_development
   pool: 5
   username: rails
   password: rails
@@ -41,7 +41,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: zhyvi_com_test
+  database: zhyvi_test
   pool: 5
   username: rails
   password: rails
@@ -49,7 +49,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: zhyvi_com_production
+  database: zhyvi_production
   pool: 5
   username: rails
   password: rails
