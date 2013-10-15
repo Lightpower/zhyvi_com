@@ -1,8 +1,9 @@
 div {
-    border: 1px solid black;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    #border: 1px solid #333333;
+
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 10px;
 }
 
 .shadow {
