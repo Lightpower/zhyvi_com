@@ -5,6 +5,11 @@ div {
     border-radius: 5px;
 }
 
+.shadow {
+    -webkit-box-shadow: 3px 3px 4px #282b1f;
+    -moz-box-shadow: 3px 3px 4px #282b1f;
+    box-shadow: 3px 3px 4px #282b1f;
+}
 
 body {
     width: 100%;
@@ -12,6 +17,12 @@ body {
     margin: 0;
     background: url(/img/back.png);
     background-size: 100%;
+}
+
+div.image {
+    height: 160px;
+    vertical-align: middle;
+    background: url(/img/logo.jpg) no-repeat center;
 }
 
 div#wrapper
@@ -31,17 +42,25 @@ div#left {
 div.top_div {
     height: 450px;
     margin-bottom: 16px;
-
 }
 
 div#header {
+    background-color: white;
 }
 
-div#menu, div#sign_up {
+div#header img {
+    max-width: 730px;
+    max-height: 430px;
+    padding: 10px;
+}
+
+
+div#menu {
     margin-bottom: 16px;
 }
-
-div#main {}
+div#sign_up {
+    margin-bottom: 16px;
+}
 
 div#content {
     vertical-align: top;
@@ -49,9 +68,10 @@ div#content {
     max-width: 790px;
 }
 
-div.image {
-    height: 160px;
-    vertical-align: middle;
-    background: url(/img/logo.jpg) no-repeat center;
+div#feedbacks {
+    background-color: white;
 }
 
+div#calendar {
+    background-color: white;
+}
