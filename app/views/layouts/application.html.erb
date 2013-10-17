@@ -11,19 +11,12 @@
     <div id="left" name="left">
       <div class="top_div">
         <div class="image"></div>
-        MENU--<br>
-        MENU--<br>
-        MENU--<br>
-        MENU--<br>
-        MENU--<br>
-        MENU--<br>
-        MENU--<br>
-        MENU--<br>
-        MENU--<br>
-        MENU--<br>
+        <%= category_divs %>
+
       </div>
       <div id="sign_up" name="sign_up">
-        REGISTRATION
+        <%= link_to "ВЫХОД", destroy_user_session_path, method: :delete if current_user %>
+        <%= link_to "РЕГИСТРАЦИЯ", new_user_registration_path unless current_user %>
       </div>
       <div id="feedbacks" name="feedbacks" class="shadow">
         FEEDBACK 1<br>
@@ -47,32 +40,7 @@
     </div>
 
     <div id="content" name="content">
-      <div id="header" name="header" class="top_div shadow">
-        <img id="header_img" name="header_img" src="/img/menu/p01.png">
-      </div>
-      <div id="menu" name="menu">
-        Menu Menu Menu Menu Menu Menu Menu Menu <br>
-      </div>
-
-      <div id="calendar" name="calendar" class="shadow">
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT <br>
-          <%= yield %>
-      </div>
+      <%= yield %>
     </div>
   </div>
 </body>

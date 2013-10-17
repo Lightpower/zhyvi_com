@@ -20,59 +20,18 @@ body {
     background-size: 100%;
 }
 
-div.image {
-    height: 160px;
-    vertical-align: middle;
-    background: url(/img/logo.jpg) no-repeat center;
+input[type=text], input[type=password], input[type=email] {
+    width: 150px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 18px;
 }
 
-div#wrapper
-{
-    width: 1000px;
-    margin: 20px auto 0 auto;
-}
-
-div#left {
-    vertical-align: top;
-    display: inline-block;
-    width: 220px;
-    height: 100%;
-    margin-right: 20px;
-}
-
-div.top_div {
-    height: 450px;
-    margin-bottom: 16px;
-}
-
-div#header {
-    background-color: white;
-}
-
-div#header img {
-    max-width: 730px;
-    max-height: 430px;
-    padding: 10px;
-}
-
-
-div#menu {
-    margin-bottom: 16px;
-}
-div#sign_up {
-    margin-bottom: 16px;
-}
-
-div#content {
-    vertical-align: top;
-    display: inline-block;
-    max-width: 790px;
-}
-
-div#feedbacks {
-    background-color: white;
-}
-
-div#calendar {
-    background-color: white;
+input[type=submit] {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: orangered;
+    font-size: 18px;
 }
