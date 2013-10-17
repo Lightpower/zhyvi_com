@@ -1,0 +1,76 @@
+div.image {
+    height: 160px;
+    vertical-align: middle;
+    background: url(/img/logo.jpg) no-repeat center;
+}
+
+div#wrapper
+{
+    width: 1000px;
+    margin: 20px auto 0 auto;
+}
+
+div#left {
+    vertical-align: top;
+    display: inline-block;
+    width: 220px;
+    height: 100%;
+    margin-right: 20px;
+}
+
+div.top_div {
+    height: 450px;
+    margin-bottom: 16px;
+}
+
+div#header {
+    background-color: white;
+}
+
+div#header img {
+    max-width: 730px;
+    max-height: 430px;
+    padding: 10px;
+}
+
+
+div#menu {
+    margin-bottom: 16px;
+    height: 23px;
+}
+div#sign_up {
+    margin-bottom: 16px;
+    height: 25px;
+}
+
+div#sign_up a {
+    background-color: orangered;
+    color: white;
+    text-decoration: none;
+    padding: 7px 30px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+div#content {
+    vertical-align: top;
+    display: inline-block;
+    max-width: 790px;
+}
+
+div#feedbacks {
+    background-color: white;
+}
+
+div#calendar {
+    background-color: white;
+}
+
+div.category {
+    background-color: white;
+    text-align: center;
+    padding: 7px 0 7px 0;
+    margin: 10px 0 10px 0;
+}
