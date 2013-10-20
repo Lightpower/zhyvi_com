@@ -1,0 +1,3 @@
+class VideoLink < FileLink
+
+end

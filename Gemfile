@@ -24,7 +24,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'devise'
+gem 'devise', path: '~/work/devise'
 
 group :production do
   gem 'rails_12factor'
@@ -44,5 +44,10 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# Use debugger
-gem 'pry-debugger', group: [:development, :test]
+group :development, :test do
+  # Use debugger
+  gem 'pry-debugger'
+  # User Rspec
+  gem 'rspec-rails', '~> 2.0'
+end
+

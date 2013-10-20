@@ -4,9 +4,9 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label 'Логин' %><br />
-  <%= f.text_field :login, :autofocus => true %></div>
+  <%= f.text_field :username, :autofocus => true %></div>
 
-  <div><%= f.label :email %><br />
+  <div><%= f.label 'Email' %><br />
   <%= f.email_field :email %></div>
 
   <div><%= f.label 'Пароль' %><br />
@@ -19,7 +19,7 @@
   <%= f.text_field :first_name %></div>
 
   <div><%= f.label 'Фамилия' %><br />
-  <%= f.text_field :login %></div>
+  <%= f.text_field :last_name %></div>
 
   <div><%= f.submit "Зарегистрироваться" %></div>
 <% end %>

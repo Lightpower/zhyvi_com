@@ -1,0 +1,3 @@
+class ImageLink < FileLink
+
+end

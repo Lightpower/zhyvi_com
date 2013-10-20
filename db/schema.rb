@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131016235146) do
+ActiveRecord::Schema.define(version: 20131019194327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: true do |t|
-    t.string   "title",      null: false
-    t.string   "type",       null: false
+    t.string   "type",       default: "Article"
+    t.string   "title"
     t.text     "preview"
     t.text     "data"
     t.integer  "user_id"
@@ -26,35 +26,56 @@ ActiveRecord::Schema.define(version: 20131016235146) do
     t.datetime "updated_at"
   end
 
+  add_index "articles", ["type"], name: "index_articles_on_type", using: :btree
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "events", force: true do |t|
-    t.string   "type",       null: false
-    t.string   "title",      null: false
+    t.string   "type",       default: "Event", null: false
+    t.string   "title"
     t.text     "preview"
     t.text     "data"
-    t.datetime "start_at",   null: false
+    t.datetime "start_at",                     null: false
     t.datetime "finish_at"
+    t.integer  "user_id",                      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["finish_at"], name: "index_events_on_finish_at", using: :btree
+  add_index "events", ["start_at"], name: "index_events_on_start_at", using: :btree
+  add_index "events", ["type"], name: "index_events_on_type", using: :btree
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+
+  create_table "feedbacks", force: true do |t|
+    t.integer  "event_id",   null: false
+    t.integer  "user_id",    null: false
+    t.integer  "file_id"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "feedbacks", ["event_id"], name: "index_feedbacks_on_event_id", using: :btree
+  add_index "feedbacks", ["file_id"], name: "index_feedbacks_on_file_id", using: :btree
+  add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id", using: :btree
+
+  create_table "file_links", force: true do |t|
+    t.string   "type",       null: false
+    t.string   "url",        null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
-
-  create_table "files", force: true do |t|
-    t.string  "file_type", null: false
-    t.string  "url",       null: false
-    t.integer "user_id"
-  end
-
-  add_index "files", ["user_id"], name: "index_files_on_user_id", using: :btree
+  add_index "file_links", ["type"], name: "index_file_links_on_type", using: :btree
+  add_index "file_links", ["user_id"], name: "index_file_links_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "login"
+    t.string   "username"
     t.string   "email"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "role",                   default: ""
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -70,5 +91,6 @@ ActiveRecord::Schema.define(version: 20131016235146) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

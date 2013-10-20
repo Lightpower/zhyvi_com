@@ -11,4 +11,13 @@ module ApplicationHelper
       content_tag(:div, category[:url].mb_chars.upcase, class: 'category shadow', 'data-index' => category[:id])
     }.join.html_safe
   end
+
+  ##
+  #  Show flash messages
+  #
+  def show_flash
+    [:notice, :alert, :error].map { |type|
+      content_tag(:div, flash[type], class: type) if flash[type]
+    }.join.html_safe
+  end
 end

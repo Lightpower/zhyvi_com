@@ -1,0 +1,12 @@
+<h2>Вход на сайт</h2>
+<%= form_for(:user, :url => session_path(:user)) do |f| %>
+  <div>
+    <%= f.label 'Логин' %><br>
+    <%= f.text_field :login, :autofocus => true %>
+  </div>
+  <div>
+    <%= f.label 'Пароль' %><br>
+    <%= f.password_field :password %><br>
+  </div>
+  <%= f.submit "Войти" %>
+<% end %>
