@@ -49,5 +49,8 @@ group :development, :test do
   gem 'pry-debugger'
   # User Rspec
   gem 'rspec-rails', '~> 2.0'
+
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
