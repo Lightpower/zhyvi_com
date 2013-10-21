@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable
   
   validate :username_and_email
+  validate :uniqueness_of_username, :uniqueness_of_email, on: :create
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -34,11 +35,13 @@ class User < ActiveRecord::Base
     # field contains correct characters only
     errors.add(:username, 'может состоять только из букв латиницы, цифр и символов "- _ . @".') unless self.username.blank? || self.username =~ /([A-Za-z0-9(\-_\.@)]+)/
     errors.add(:email,    'не соответствует формату.') unless self.email.blank? || self.email =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  end
 
-    # Check both :username and :email
-    [:username, :email].each do |field|
-      # field is unique or nil
-      errors.add(field, 'уже зарегистрирован. Выберите другой.') if self.send(field).present? && User.where(field => self.send(field)).present?
-    end
+  def uniqueness_of_username
+    errors.add(:username, 'уже зарегистрирован. Выберите другой.') if self.username.present? && User.where(username: self.username).present?
+  end
+
+  def uniqueness_of_email
+    errors.add(:email, 'уже зарегистрирован. Выберите другой.') if self.email.present? && User.where(email: self.email).present?
   end
 end
