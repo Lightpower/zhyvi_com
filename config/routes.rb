@@ -1,5 +1,13 @@
 ZhyviCom::Application.routes.draw do
 
+  resources :articles
+
+  resources :events
+
+  resources :file_links
+
+  resources :feedbacks
+
   devise_for :users
   root 'home#index'
 
