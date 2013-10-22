@@ -47,10 +47,11 @@ ActiveRecord::Schema.define(version: 20131019194327) do
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "feedbacks", force: true do |t|
-    t.integer  "event_id",   null: false
-    t.integer  "user_id",    null: false
+    t.integer  "event_id",                   null: false
+    t.integer  "user_id",                    null: false
     t.integer  "file_id"
     t.text     "data"
+    t.boolean  "selected",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
