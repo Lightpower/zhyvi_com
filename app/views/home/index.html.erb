@@ -3,7 +3,7 @@
 </div>
 <div id="menu" name="menu">
   <%= render "users/current_user" if current_user %>
-  <%= render "devise/sessions/new", resource: User, resource_name: User unless current_user %>
+  <%= render "devise/sessions/short_new", resource: User, resource_name: User unless current_user %>
 </div>
 
 <div id="calendar" name="calendar" class="shadow">
