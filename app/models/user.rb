@@ -24,11 +24,16 @@ class User < ActiveRecord::Base
     self.username || self.email
   end
 
+  def is_admin?
+    self.role == "Admin"
+  end
+
   private
 
   ##
-  # Validation of username and email
-  #
+  ## Validators
+  ##
+
   def username_and_email
     # Check if both :username and :email are not empty
     errors.add(:base,     'Укажите логин или email.') if self.username.blank? && self.email.blank?
