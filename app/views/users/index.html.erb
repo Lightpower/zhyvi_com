@@ -3,10 +3,20 @@
 <table>
   <thead>
     <tr>
-      <th>Логин</th>
+      <th>Username</th>
       <th>Email</th>
-      <th>Имя</th>
-      <th>Фамилия</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Role</th>
+      <th>Reset password sent at</th>
+      <th>Remember created at</th>
+      <th>Sign in count</th>
+      <th>Current sign in at</th>
+      <th>Last sign in at</th>
+      <th>Current sign in ip</th>
+      <th>Last sign in ip</th>
+      <th>Created at</th>
+      <th>Updated at</th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,6 +30,16 @@
         <td><%= user.email %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
+        <td><%= user.role %></td>
+        <td><%= user.reset_password_sent_at %></td>
+        <td><%= user.remember_created_at %></td>
+        <td><%= user.sign_in_count %></td>
+        <td><%= user.current_sign_in_at %></td>
+        <td><%= user.last_sign_in_at %></td>
+        <td><%= user.current_sign_in_ip %></td>
+        <td><%= user.last_sign_in_ip %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.updated_at %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,4 +50,4 @@
 
 <br>
 
-<%= link_to 'Новый пользователь', new_user_path %>
+<%= link_to 'New User', new_user_path %>
