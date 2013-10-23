@@ -3,13 +3,13 @@
 <table>
   <thead>
     <tr>
-      <th>Type</th>
-      <th>Title</th>
-      <th>Preview</th>
-      <th>Data</th>
-      <th>Start at</th>
-      <th>Finish at</th>
-      <th>User</th>
+      <th>Тип</th>
+      <th>Название</th>
+      <th>Предпросмотр</th>
+      <th>Текст</th>
+      <th>Начало</th>
+      <th>Конец</th>
+      <th>Автор</th>
       <th></th>
       <th></th>
       <th></th>
@@ -26,9 +26,9 @@
         <td><%= event.start_at %></td>
         <td><%= event.finish_at %></td>
         <td><%= event.user %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Показать', event %></td>
+        <td><%= link_to 'Править', edit_event_path(event) %></td>
+        <td><%= link_to 'Удалить', event, method: :delete, data: { confirm: 'Точно удалить?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'Новое событие', new_event_path %>

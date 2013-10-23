@@ -20,9 +20,9 @@
         <td><%= feedback.user.try(:show_name) %></td>
         <td><%= feedback.file_link.try(:url) %></td>
         <td><%= feedback.data %></td>
-        <td><%= link_to 'Show', feedback %></td>
-        <td><%= link_to 'Edit', edit_feedback_path(feedback) %></td>
-        <td><%= link_to 'Destroy', feedback, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Показать', feedback %></td>
+        <td><%= link_to 'Править', edit_feedback_path(feedback) %></td>
+        <td><%= link_to 'Удалить', feedback, method: :delete, data: { confirm: 'Точно удалить?' } %></td>
       </tr>
     <% end %>
   </tbody>

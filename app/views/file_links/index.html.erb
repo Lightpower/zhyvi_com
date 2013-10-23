@@ -18,9 +18,9 @@
         <td><%= file_link.type %></td>
         <td><%= file_link.url %></td>
         <td><%= file_link.user %></td>
-        <td><%= link_to 'Show', file_link %></td>
-        <td><%= link_to 'Edit', edit_file_link_path(file_link) %></td>
-        <td><%= link_to 'Destroy', file_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Показать', file_link %></td>
+        <td><%= link_to 'Править', edit_file_link_path(file_link) %></td>
+        <td><%= link_to 'Удалить', file_link, method: :delete, data: { confirm: 'Точно удалить?' } %></td>
       </tr>
     <% end %>
   </tbody>

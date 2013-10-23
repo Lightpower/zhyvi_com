@@ -22,7 +22,7 @@
         <td><%= article.preview %></td>
         <td><%= article.data %></td>
         <td><%= article.user.show_name %></td>
-        <td><%= link_to 'Смотреть', article %></td>
+        <td><%= link_to 'Показать', article %></td>
         <td><%= link_to 'Править', edit_article_path(article) %></td>
         <td><%= link_to 'Удалить', article, method: :delete, data: { confirm: 'Точно удалить?' } %></td>
       </tr>
