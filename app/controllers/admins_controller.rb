@@ -1,11 +1,13 @@
-class AdminController < ApplicationController
+class AdminsController < ApplicationController
+  include Adminable
+
   before_filter :check_access
 
   ##
   # Admin page
   #
   def index
-    render :index, layout: 'admin'
+    #render :index, layout: 'admin'
   end
 
   private
