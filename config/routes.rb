@@ -1,5 +1,7 @@
 ZhyviCom::Application.routes.draw do
 
+  resources :users
+
   resources :articles
 
   resources :events
@@ -8,13 +10,10 @@ ZhyviCom::Application.routes.draw do
 
   resources :feedbacks
 
-  resources :admin, only: [:index]
-
-  #resources :user
+  resources :admins, only: [:index]
 
   devise_for :users
   root 'home#index'
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.
