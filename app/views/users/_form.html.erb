@@ -1,0 +1,73 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :role %><br>
+    <%= f.text_field :role %>
+  </div>
+  <div class="field">
+    <%= f.label :reset_password_sent_at %><br>
+    <%= f.datetime_select :reset_password_sent_at %>
+  </div>
+  <div class="field">
+    <%= f.label :remember_created_at %><br>
+    <%= f.datetime_select :remember_created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :sign_in_count %><br>
+    <%= f.number_field :sign_in_count %>
+  </div>
+  <div class="field">
+    <%= f.label :current_sign_in_at %><br>
+    <%= f.datetime_select :current_sign_in_at %>
+  </div>
+  <div class="field">
+    <%= f.label :last_sign_in_at %><br>
+    <%= f.datetime_select :last_sign_in_at %>
+  </div>
+  <div class="field">
+    <%= f.label :current_sign_in_ip %><br>
+    <%= f.text_field :current_sign_in_ip %>
+  </div>
+  <div class="field">
+    <%= f.label :last_sign_in_ip %><br>
+    <%= f.text_field :last_sign_in_ip %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br>
+    <%= f.datetime_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_at %><br>
+    <%= f.datetime_select :updated_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
