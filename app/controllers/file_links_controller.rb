@@ -1,4 +1,6 @@
 class FileLinksController < ApplicationController
+  include Adminable
+
   load_and_authorize_resource
 
   # GET /file_links
@@ -28,7 +30,7 @@ class FileLinksController < ApplicationController
 
     respond_to do |format|
       if @file_link.save
-        format.html { redirect_to @file_link, notice: 'File link was successfully created.' }
+        format.html { redirect_to @file_link, notice: 'File link - объект успешно создан.' }
         format.json { render action: 'show', status: :created, location: @file_link }
       else
         format.html { render action: 'new' }
@@ -42,7 +44,7 @@ class FileLinksController < ApplicationController
   def update
     respond_to do |format|
       if @file_link.update(file_link_params)
-        format.html { redirect_to @file_link, notice: 'File link was successfully updated.' }
+        format.html { redirect_to @file_link, notice: 'File link - объект успешно изменён.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

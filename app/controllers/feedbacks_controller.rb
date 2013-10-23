@@ -1,4 +1,6 @@
 class FeedbacksController < ApplicationController
+  include Adminable
+
   load_and_authorize_resource
 
   # GET /feedbacks
@@ -28,7 +30,7 @@ class FeedbacksController < ApplicationController
 
     respond_to do |format|
       if @feedback.save
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
+        format.html { redirect_to @feedback, notice: 'Feedback - объект успешно создан.' }
         format.json { render action: 'show', status: :created, location: @feedback }
       else
         format.html { render action: 'new' }
@@ -42,7 +44,7 @@ class FeedbacksController < ApplicationController
   def update
     respond_to do |format|
       if @feedback.update(feedback_params)
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully updated.' }
+        format.html { redirect_to @feedback, notice: 'Feedback - объект успешно изменён.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

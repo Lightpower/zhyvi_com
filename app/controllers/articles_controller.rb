@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  include Adminable
+
   load_and_authorize_resource
 
   # GET /articles
