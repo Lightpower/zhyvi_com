@@ -66,6 +66,6 @@ class FeedbacksController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def feedback_params
-      params.require(:feedback).permit(:event_id, :user_id, :file_link_id, :data)
+      params.require(:feedback).permit(:event_id, :user_id, :file_link_id, :data, :selected)
     end
 end
