@@ -1,36 +1,37 @@
 ZH.carusel = {
-    step: function() {
-        var current_div, next_div,
-            current_number, next_number,
-            current_image, next_image;
+    step: function(number) {
+        var current_div, current_number, next_number;
 
-        current_div = $('div.category_selected');
-        if(current_div.length == 0) {
-            // First time
-            next_div = $('div.category[data-index="1"]');
-            next_image = $('div.category_image[data-index="1"]');
-            next_number = 1;
+        if(number != 0) {
+            next_number = number;
         }else{
-            current_number = current_div.data("index");
-            next_number = ZH.carusel.next_number(current_number);
-            next_div = $('div.category[data-index="' + next_number + '"]');
-            current_image = $('div.category_image[data-index="' + current_number + '"]');
-            next_image = $('div.category_image[data-index="' + next_number + '"]');
-
-            current_div.removeClass("category_selected").addClass("category");
-            current_image.addClass("hidden");
+            current_div = $('div.category.selected');
+            if(current_div.length == 0) {
+                // First time
+                next_number = 1;
+            }else{
+                current_number = current_div.data("index");
+                next_number = ZH.carusel.next_number(current_number);
+            }
         }
 
-        next_div.removeClass("category").addClass("category_selected");
-        next_image.removeClass("hidden");
+        // Hide all category div's and category images
+        $('div.category').removeClass("selected");
+        $('div.category_image').addClass("hidden");
+        // Select next div and show next picture
+        $('div.category[data-index="' + next_number + '"]').addClass("selected");
+        $('div.category_image[data-index="' + next_number + '"]').removeClass("hidden");
     },
     next_number: function(number) {
-        var next = number+=1;
+        var next = number+1;
         if(next > 7) next = 0;
         return next;
+    },
+    step_by_div: function(div) {
+      ZH.carusel.step($(div).data("index"));
     }
 };
 
 $(function() {
-  setInterval(ZH.carusel.step(), 15000);
+  setInterval(ZH.carusel.step(0), 15000);
 });
