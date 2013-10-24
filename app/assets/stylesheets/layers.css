@@ -13,6 +13,7 @@ div#wrapper
 div#left {
     vertical-align: top;
     display: inline-block;
+    text-align: center;
     width: 220px;
     height: 100%;
     margin-right: 20px;
@@ -73,4 +74,12 @@ div.category {
     text-align: center;
     padding: 7px 0 7px 0;
     margin: 10px 0 10px 0;
+}
+
+div.category_selected {
+    background-color: yellow;
+    text-align: center;
+    padding: 7px 0 7px 0;
+    margin: 10px 0 10px 0;
+    font-weight: bold;
 }
