@@ -1,3 +1,3 @@
-class VideoLinkA < FileLink
+class VideoLink < FileLink
 
 end
