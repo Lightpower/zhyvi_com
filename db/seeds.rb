@@ -13,9 +13,9 @@ user  = User.create(username: 'test',  password: '123456', password_confirmation
 
 puts "Users are added with id: [#{admin.id}, #{user.id}]"
 
-images = ImageLink.create([
-    {url: 'http://klads.org.ua/044/1_1.png', user_id: admin.id},
-    {url: 'http://klads.org.ua/044/5_4.png', user_id: admin.id}
+images = FileLink.create([
+    {type: 'FileLink', url: 'http://klads.org.ua/044/pic/1_1.png', user_id: admin.id},
+    {type: 'FileLink', url: 'http://klads.org.ua/044/pic/5_4.png', user_id: admin.id}
 ])
 
 puts "#{images.size} images are added"
@@ -28,7 +28,7 @@ events = Event.create([
 puts "#{events.size} events are added"
 
 feedbacks = Feedback.create([
-  {event_id: events.first.id, user_id: user.id, file_id: images.first.id, data: 'Всё было супер'},
+  {event_id: events.first.id, user_id: user.id, file_link_id: images.first.id, data: 'Всё было супер'},
   {event_id: events.first.id, user_id: user.id, data: 'Отзыв 2'},
   {event_id: events.first.id, user_id: user.id, data: 'Отзыв 3'},
   {event_id: events.first.id, user_id: user.id, data: 'Отзыв 4'},
