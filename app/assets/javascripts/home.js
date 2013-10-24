@@ -24,7 +24,7 @@ ZH.carusel = {
     },
     next_number: function(number) {
         var next = number+1;
-        if(next > 7) next = 0;
+        if(next > 7) next = 1;
         return next;
     },
     step_by_div: function(div) {
@@ -33,5 +33,6 @@ ZH.carusel = {
 };
 
 $(function() {
-  setInterval(ZH.carusel.step(0), 15000);
+    ZH.carusel.step(1);
+    setInterval(function() { ZH.carusel.step(0); }, 3000);
 });
