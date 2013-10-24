@@ -1,3 +1,3 @@
-class ImageLink < FileLink
+class ImageLinkA < FileLink
 
 end
