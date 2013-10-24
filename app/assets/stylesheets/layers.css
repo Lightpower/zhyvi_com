@@ -76,7 +76,7 @@ div.category {
     margin: 10px 0 10px 0;
 }
 
-div.category_selected {
+div.category.selected {
     background-color: yellow;
     text-align: center;
     padding: 7px 0 7px 0;
