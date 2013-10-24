@@ -1,8 +1,9 @@
-<h1>Listing events</h1>
+<h1>События</h1>
 
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Тип</th>
       <th>Название</th>
       <th>Предпросмотр</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
+        <td><%= event.id %></td>
         <td><%= event.type %></td>
         <td><%= event.title %></td>
         <td><%= event.preview %></td>

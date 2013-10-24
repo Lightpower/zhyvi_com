@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Тип</th>
       <th>Заголовок</th>
       <th>Превью</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
+        <td><%= article.id %></td>
         <td><%= article.type %></td>
         <td><%= article.title %></td>
         <td><%= article.preview %></td>

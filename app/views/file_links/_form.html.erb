@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :type %><br>
+    <%= f.label :type, 'Тип' %><br>
     <%= f.text_field :type %>
   </div>
   <div class="field">
-    <%= f.label :url %><br>
+    <%= f.label :url, 'Ссылка' %><br>
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= f.label :user %><br>
-    <%= f.text_field :user %>
+    <%= f.label :user, 'Пользователь' %><br>
+    <%= f.text_field :user_id %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Сохранить' %>
   </div>
 <% end %>

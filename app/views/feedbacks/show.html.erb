@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Event:</strong>
-  <%= @feedback.event %>
+  <strong>Событие:</strong>
+  <%= @feedback.event.try(:title) %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @feedback.user %>
+  <strong>Пользователь:</strong>
+  <%= @feedback.user.show_name %>
 </p>
 
 <p>
-  <strong>File link:</strong>
-  <%= @feedback.file_link %>
+  <strong>Ссылка на файл:</strong>
+  <%= @feedback.file_link.try(:url) %>
 </p>
 
 <p>
-  <strong>Data:</strong>
+  <strong>Текст:</strong>
   <%= @feedback.data %>
 </p>
 

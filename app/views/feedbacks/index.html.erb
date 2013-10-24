@@ -1,12 +1,14 @@
-<h1>Listing feedbacks</h1>
+<h1>Отзывы</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Event</th>
-      <th>User</th>
-      <th>File link</th>
-      <th>Data</th>
+      <th>ID</th>
+      <th>Событие</th>
+      <th>Автор</th>
+      <th>Файл</th>
+      <th>Текс</th>
+      <th>Избранный?</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,10 +18,12 @@
   <tbody>
     <% @feedbacks.each do |feedback| %>
       <tr>
+        <td><%= feedback.id %></td>
         <td><%= feedback.event.try(:title) %></td>
         <td><%= feedback.user.try(:show_name) %></td>
         <td><%= feedback.file_link.try(:url) %></td>
         <td><%= feedback.data %></td>
+        <td><%= feedback.selected ? 'да':'' %></td>
         <td><%= link_to 'Показать', feedback %></td>
         <td><%= link_to 'Править', edit_feedback_path(feedback) %></td>
         <td><%= link_to 'Удалить', feedback, method: :delete, data: { confirm: 'Точно удалить?' } %></td>
@@ -30,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Feedback', new_feedback_path %>
+<%= link_to 'Новый отзыв', new_feedback_path %>

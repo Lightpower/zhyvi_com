@@ -1,11 +1,12 @@
-<h1>Listing file_links</h1>
+<h1>Ссылки на файлы</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Type</th>
+      <th>ID</th>
+      <th>Тип</th>
       <th>Url</th>
-      <th>User</th>
+      <th>Хозяин</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,12 +16,13 @@
   <tbody>
     <% @file_links.each do |file_link| %>
       <tr>
+        <td><%= file_link.id %></td>
         <td><%= file_link.type %></td>
         <td><%= file_link.url %></td>
-        <td><%= file_link.user %></td>
-        <td><%= link_to 'Показать', file_link %></td>
+        <td><%= file_link.user.show_name %></td>
+        <td><%= link_to 'Показать', file_link_path(file_link) %></td>
         <td><%= link_to 'Править', edit_file_link_path(file_link) %></td>
-        <td><%= link_to 'Удалить', file_link, method: :delete, data: { confirm: 'Точно удалить?' } %></td>
+        <td><%= link_to 'Удалить', file_link_path(file_link), method: :delete, data: { confirm: 'Точно удалить?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New File link', new_file_link_path %>
+<%= link_to 'Новая ссылка на файл', new_file_link_path %>

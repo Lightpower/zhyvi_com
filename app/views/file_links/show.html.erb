@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Type:</strong>
+  <strong>Тип:</strong>
   <%= @file_link.type %>
 </p>
 
 <p>
-  <strong>Url:</strong>
+  <strong>URL:</strong>
   <%= @file_link.url %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @file_link.user %>
+  <strong>Пользователь:</strong>
+  <%= @file_link.user.show_name %>
 </p>
 
 <%= link_to 'Править', edit_file_link_path(@file_link) %> |

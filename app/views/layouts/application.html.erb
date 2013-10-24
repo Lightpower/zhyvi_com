@@ -16,27 +16,11 @@
 
       </div>
       <div id="sign_up" name="sign_up">
-        <%= link_to "ВЫХОД", destroy_user_session_path, method: :delete if current_user %>
-        <%= link_to "РЕГИСТРАЦИЯ", new_user_registration_path unless current_user %>
+        <%= link_to 'ВЫХОД', destroy_user_session_path, method: :delete if current_user %>
+        <%= link_to 'РЕГИСТРАЦИЯ', new_user_registration_path unless current_user %>
       </div>
       <div id="feedbacks" name="feedbacks" class="shadow">
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
-        FEEDBACK 1<br>
+        <%= render 'feedbacks/selected_list', feedbacks: selected_list %>
       </div>
     </div>
 
