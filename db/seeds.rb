@@ -28,8 +28,8 @@ events = Event.create([
 puts "#{events.size} events are added"
 
 feedbacks = Feedback.create([
-  {event_id: events.first.id, user_id: user.id, file_link_id: images.first.id, data: 'Всё было супер'},
-  {event_id: events.first.id, user_id: user.id, data: 'Отзыв 2'},
+  {event_id: events.first.id, user_id: user.id, file_link_id: images.first.id, data: 'Всё было супер', selected: true},
+  {event_id: events.first.id, user_id: user.id, file_link: images,last.id, data: 'Отзыв 2', selected: true},
   {event_id: events.first.id, user_id: user.id, data: 'Отзыв 3'},
   {event_id: events.first.id, user_id: user.id, data: 'Отзыв 4'},
   {event_id: events.first.id, user_id: user.id, data: 'Последний отзыв'}
