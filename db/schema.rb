@@ -47,17 +47,17 @@ ActiveRecord::Schema.define(version: 20131019194327) do
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "feedbacks", force: true do |t|
-    t.integer  "event_id",                   null: false
-    t.integer  "user_id",                    null: false
-    t.integer  "file_id"
+    t.integer  "event_id",                     null: false
+    t.integer  "user_id",                      null: false
+    t.integer  "file_link_id"
     t.text     "data"
-    t.boolean  "selected",   default: false
+    t.boolean  "selected",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "feedbacks", ["event_id"], name: "index_feedbacks_on_event_id", using: :btree
-  add_index "feedbacks", ["file_id"], name: "index_feedbacks_on_file_id", using: :btree
+  add_index "feedbacks", ["file_link_id"], name: "index_feedbacks_on_file_link_id", using: :btree
   add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id", using: :btree
 
   create_table "file_links", force: true do |t|
