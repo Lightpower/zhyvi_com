@@ -4,7 +4,12 @@ ZhyviCom::Application.routes.draw do
 
   resources :articles
 
-  resources :events
+  resources :events do
+    collection do
+      get :calendar
+    end
+  end
+
 
   resources :file_links
 

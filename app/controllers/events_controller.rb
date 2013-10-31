@@ -1,7 +1,10 @@
 class EventsController < ApplicationController
+  require './app/presenters/events_presenter'
+  include EventsPresenter
+
   include Adminable
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:calendar]
 
   # GET /events
   # GET /events.json
@@ -26,6 +29,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    binding.pry
     @event = Event.new(event_params)
 
     respond_to do |format|
@@ -61,6 +65,24 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url }
       format.json { head :no_content }
     end
+  end
+
+  # GET /events/calendar
+  # GET /events/calendar.json
+  # It is accessible for all users including guests
+  def calendar
+    date = Date.parse(params[:start_date]) || Date.new
+    events = Event.for_calendar(date).all
+    json = calendar_json(events)
+    render json: json, status: 200
+
+    #respond_to do |format|
+      #format.js { render json: { '1.10.2013' => {title: 'TITLE', preview: 'PREVIEW'} }, status: 200 }
+    #  format.js {
+    #
+    #    render json: 'events/calendar', status: 200
+    #  }
+    #end
   end
 
   private
