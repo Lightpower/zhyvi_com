@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   include Adminable
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:create]
 
   # GET /articles
   # GET /articles.json
@@ -26,6 +26,9 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+    @article = Article.new(article_params)
+    @article.user_id ||= current_user.id
+
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Статья успешно создана.' }

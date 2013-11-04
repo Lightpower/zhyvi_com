@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include Adminable
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:create]
 
   # GET /users
   # GET /users.json
@@ -27,6 +27,8 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+
+    authorize! :create, @user
 
     respond_to do |format|
       if @user.save

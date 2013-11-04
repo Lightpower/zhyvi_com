@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   include Adminable
 
-  load_and_authorize_resource except: [:calendar]
+  load_and_authorize_resource except: [:calendar, :create]
 
   # GET /events
   # GET /events.json
@@ -29,10 +29,10 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    binding.pry
     @event = Event.new(event_params)
-
     @event.user_id = current_user.id
+
+    authorize! :create, @event
 
     respond_to do |format|
       if @event.save
@@ -69,27 +69,18 @@ class EventsController < ApplicationController
     end
   end
 
-  # GET /events/calendar
   # GET /events/calendar.json
   # It is accessible for all users including guests
   def calendar
     date = Date.parse(params[:start_date]) || Date.new
     events = Event.for_calendar(date).all
-    json = calendar_json(events)
-    render json: json, status: 200
-
-    #respond_to do |format|
-      #format.js { render json: { '1.10.2013' => {title: 'TITLE', preview: 'PREVIEW'} }, status: 200 }
-    #  format.js {
-    #
-    #    render json: 'events/calendar', status: 200
-    #  }
-    #end
+    render json: calendar_json(events), status: 200
   end
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
+      binding.pry
       params.require(:event).permit(:type, :title, :preview, :data, :start_at, :finish_at, :user_id)
     end
 end

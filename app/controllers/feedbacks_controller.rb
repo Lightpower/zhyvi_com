@@ -1,7 +1,7 @@
 class FeedbacksController < ApplicationController
   include Adminable
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:create]
 
   # GET /feedbacks
   # GET /feedbacks.json
@@ -27,10 +27,13 @@ class FeedbacksController < ApplicationController
   # POST /feedbacks.json
   def create
     @feedback = Feedback.new(feedback_params)
+    @feedback.user_id ||= current_user.id
+
+    authorize! :create, @feedback
 
     respond_to do |format|
       if @feedback.save
-        format.html { redirect_to @feedback, notice: 'Feedback - объект успешно создан.' }
+        format.html { redirect_to @feedback, notice: 'Отзыв - объект успешно создан.' }
         format.json { render action: 'show', status: :created, location: @feedback }
       else
         format.html { render action: 'new' }
@@ -44,7 +47,7 @@ class FeedbacksController < ApplicationController
   def update
     respond_to do |format|
       if @feedback.update(feedback_params)
-        format.html { redirect_to @feedback, notice: 'Feedback - объект успешно изменён.' }
+        format.html { redirect_to @feedback, notice: 'Отзыв - объект успешно изменён.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -1,7 +1,7 @@
 class FileLinksController < ApplicationController
   include Adminable
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:create]
 
   # GET /file_links
   # GET /file_links.json
@@ -27,6 +27,9 @@ class FileLinksController < ApplicationController
   # POST /file_links.json
   def create
     @file_link = FileLink.new(file_link_params)
+    @file_link.user_id ||= current_user.id
+
+    authorize! :create, @file_link
 
     respond_to do |format|
       if @file_link.save
