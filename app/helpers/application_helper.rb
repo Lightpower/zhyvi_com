@@ -20,4 +20,11 @@ module ApplicationHelper
       content_tag(:div, flash[type], class: type) if flash[type]
     }.join.html_safe
   end
+
+  ##
+  # Format datetime
+  #
+  def format(datetime)
+    datetime.try(:strftime, '%d.%m.%Y %H:%M')
+  end
 end
