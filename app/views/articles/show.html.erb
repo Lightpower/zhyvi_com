@@ -22,7 +22,7 @@
 
 <p>
   <strong>Автор:</strong>
-  <%= @article.user.show_name %>
+  <%= @article.user.try(:show_name) %>
 </p>
 
 <%= link_to 'Править', edit_article_path(@article) %> |

@@ -1,7 +1,7 @@
 <%= form_for(@file_link) do |f| %>
   <% if @file_link.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@file_link.errors.count, "error") %> prohibited this file_link from being saved:</h2>
+      <h2><%= pluralize(@file_link.errors.count, "error") %> не дают сохранить эту ссылку на файл:</h2>
 
       <ul>
       <% @file_link.errors.full_messages.each do |msg| %>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :type, 'Тип' %><br>
-    <%= f.text_field :type %>
+    <%= f.text_field :type, value: 'FileLink' %>
   </div>
   <div class="field">
     <%= f.label :url, 'Ссылка' %><br>

@@ -12,24 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :type %><br>
+    <%= f.label :type, 'Тип' %><br>
     <%= f.text_field :type %>
   </div>
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title, 'Заголовок' %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :preview %><br>
+    <%= f.label :preview, 'Предпросмотр' %><br>
     <%= f.text_area :preview %>
   </div>
   <div class="field">
-    <%= f.label :data %><br>
+    <%= f.label :data, 'Текст' %><br>
     <%= f.text_area :data %>
   </div>
   <div class="field">
-    <%= f.label :user %><br>
-    <%= f.text_field :user %>
+    <%= f.label :user_id, 'ID автора' %><br>
+    <%= f.text_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit 'Сохранить' %>

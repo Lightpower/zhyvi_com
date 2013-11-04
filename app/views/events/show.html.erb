@@ -1,38 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Type:</strong>
+  <strong>Тип:</strong>
   <%= @event.type %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Заголовок:</strong>
   <%= @event.title %>
 </p>
 
 <p>
-  <strong>Preview:</strong>
+  <strong>Предпросмотр:</strong>
   <%= @event.preview %>
 </p>
 
 <p>
-  <strong>Data:</strong>
+  <strong>Текст:</strong>
   <%= @event.data %>
 </p>
 
 <p>
-  <strong>Start at:</strong>
-  <%= @event.start_at %>
+  <strong>Начало:</strong>
+  <%= format(@event.start_at) %>
 </p>
 
 <p>
-  <strong>Finish at:</strong>
-  <%= @event.finish_at %>
+  <strong>Конец:</strong>
+  <%= format(@event.finish_at) %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @event.user %>
+  <strong>Автор:</strong>
+  <%= @event.user.show_name %>
 </p>
 
 <%= link_to 'Править', edit_event_path(@event) %> |
