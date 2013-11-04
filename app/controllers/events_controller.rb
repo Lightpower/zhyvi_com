@@ -32,6 +32,8 @@ class EventsController < ApplicationController
     binding.pry
     @event = Event.new(event_params)
 
+    @event.user_id = current_user.id
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event - объект успешно создан.' }
