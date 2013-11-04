@@ -10,6 +10,12 @@ div#wrapper
     margin: 20px auto 0 auto;
 }
 
+div#wrapper.admin
+{
+    background-color: white;
+    padding: 10px;
+}
+
 div#left {
     vertical-align: top;
     display: inline-block;
