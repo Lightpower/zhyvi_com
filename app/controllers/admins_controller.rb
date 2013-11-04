@@ -7,7 +7,6 @@ class AdminsController < ApplicationController
   # Admin page
   #
   def index
-    #render :index, layout: 'admin'
   end
 
   private
