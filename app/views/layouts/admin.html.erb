@@ -8,7 +8,7 @@
 </head>
 <body>
   <div id="wrapper" name="wrapper">
-    <div><a href="/">Вернуться на главную</a></div>
+    <div><%= link_to 'Вернуться на главную', root_path %> * <%= link_to 'Вернуться к админке', admins_path %></div>
     <%= show_flash %>
     <div id="content" name="content">
       <%= yield %>
