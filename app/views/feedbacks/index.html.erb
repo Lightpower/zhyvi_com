@@ -21,7 +21,7 @@
         <td><%= feedback.id %></td>
         <td><%= feedback.event.try(:title) %></td>
         <td><%= feedback.user.try(:show_name) %></td>
-        <td><%= feedback.file_link.try(:url) %></td>
+        <td><%= link_to(feedback.file_link.url, feedback.file_link.url) if feedback.file_link %></td>
         <td><%= feedback.data %></td>
         <td><%= feedback.selected ? 'да':'' %></td>
         <td><%= link_to 'Показать', feedback %></td>

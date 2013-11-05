@@ -18,7 +18,7 @@
       <tr>
         <td><%= file_link.id %></td>
         <td><%= file_link.type %></td>
-        <td><%= file_link.url %></td>
+        <td><%= link_to file_link.url, file_link.url %></td>
         <td><%= file_link.user.show_name %></td>
         <td><%= link_to 'Показать', file_link_path(file_link) %></td>
         <td><%= link_to 'Править', edit_file_link_path(file_link) %></td>
