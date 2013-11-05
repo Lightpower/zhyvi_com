@@ -1,11 +1,11 @@
-h1, h2, h3 {
+h1, h2, h3, span.h {
     font-family: 'Papyrus';
     color: grey;
 }
 div.image {
     height: 160px;
     vertical-align: middle;
-    background: url(/img/logo.jpg) no-repeat center;
+    background: url(/img/logo.png) no-repeat center;
 }
 
 div#wrapper
@@ -78,14 +78,14 @@ div#feedbacks {
 div.category {
     background-color: white;
     text-align: center;
-    padding: 7px 0 7px 0;
+    padding: 4px 0 4px 0;
     margin: 10px 0 10px 0;
 }
 
 div.category.selected {
     background-color: yellow;
     text-align: center;
-    padding: 7px 0 7px 0;
-    margin: 10px 0 10px 0;
+    padding: 6px 0 6px 0;
+    margin: 8px 0 8px 0;
     font-weight: bold;
 }
