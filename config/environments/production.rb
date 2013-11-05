@@ -77,4 +77,14 @@ ZhyviCom::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Add the fonts path
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+  # Adding Webfonts to the Asset Pipeline
+  config.assets.precompile << Proc.new { |path|
+    if path =~ /\.(eot|svg|ttf|woff)\z/
+      true
+    end
+  }
 end
