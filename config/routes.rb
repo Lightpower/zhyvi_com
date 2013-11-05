@@ -1,5 +1,8 @@
 ZhyviCom::Application.routes.draw do
 
+  devise_for :users
+  root 'home#index'
+
   resources :users
 
   resources :articles
@@ -10,16 +13,11 @@ ZhyviCom::Application.routes.draw do
     end
   end
 
-
   resources :file_links
 
   resources :feedbacks
 
   resources :admins, only: [:index]
-
-  devise_for :users
-  root 'home#index'
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
