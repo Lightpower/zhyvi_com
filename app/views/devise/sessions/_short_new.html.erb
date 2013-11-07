@@ -1,5 +1,7 @@
-<%= form_for(:user, :url => session_path(:user)) do |f| %>
-  <%= f.text_field :login, :autofocus => true %>
-  <%= f.password_field :password %>
-  <%= f.submit "Войти" %>
-<% end %>
+<div class="inline-block">
+  <%= form_for(:user, url: session_path(:user)) do |f| %>
+      <%= f.text_field :login, :autofocus => true %>
+      <%= f.password_field :password %>
+      <%= f.submit "Войти" %>
+  <% end %>
+</div>

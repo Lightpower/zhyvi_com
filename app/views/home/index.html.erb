@@ -3,8 +3,9 @@
   <%= category_images %>
 </div>
 <div id="menu" name="menu">
-  <%= render "users/current_user" if current_user %>
-  <%= render "devise/sessions/short_new", resource: User, resource_name: User unless current_user %>
+  <%= render 'users/current_user' if current_user %>
+  <%= render 'devise/sessions/short_new', resource: User, resource_name: User unless current_user %>
+  <%= render 'home/contacts' %>
 </div>
 
 <%= render template: 'events/calendar' %>

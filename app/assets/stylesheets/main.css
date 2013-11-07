@@ -7,9 +7,9 @@ div {
 }
 
 .shadow {
-    -webkit-box-shadow: 3px 3px 4px #95986c;
-    -moz-box-shadow: 3px 3px 4px #95986c;
-    box-shadow: 3px 3px 4px #95986c;
+    -webkit-box-shadow: 2px 2px 3px #95986c;
+    -moz-box-shadow: 2px 2px 3px #95986c;
+    box-shadow: 2px 2px 3px #95986c;
 }
 
 body {
@@ -65,4 +65,12 @@ input[type=submit] {
 
 h1 {
   text-align: center;
+}
+
+.float_right {
+    float: right;
+}
+
+.inline-block {
+    display: inline-block;
 }
