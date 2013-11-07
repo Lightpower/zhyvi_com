@@ -1,1 +1,1 @@
-<span>Вы вошли как:</span> <%= current_user.show_name %></b> <%= link_to 'Войти в админку', admins_path if current_user.is_admin? %>
+<span class="user">Вы вошли как:</span> <b><%= current_user.show_name %></b></span> <%= link_to 'Войти в админку', admins_path if current_user.is_admin? %>
