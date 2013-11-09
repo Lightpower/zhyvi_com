@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def category_images
     Category.all.map { |category|
-      content_tag(:div, image_tag(category[:url]), class: 'category_image hidden', 'data-index' => category[:id])
+      content_tag(:div, image_tag(category[:url]), class: 'category_image', style: 'display: none;', 'data-index' => category[:id])
     }.join.html_safe
   end
 
