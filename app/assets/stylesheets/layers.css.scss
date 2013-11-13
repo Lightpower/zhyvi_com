@@ -1,24 +1,23 @@
-h1, h2, h3, span.h {
-  font-family: 'Papirus';
+h1 {
+  font-family: 'Papyrus';
   color: grey;
-  //margin-top: 5px;
+  margin: 8px 0 0 0;
 }
-div.image {
+
+h1 {
+  font-size: 1.4em;
+}
+
+hr {
+  color: grey;
+  margin: 0 5px 5px 5px;
+}
+
+
+div.logo {
   height: 160px;
   vertical-align: middle;
   background: url(/img/logo.png) no-repeat center;
-}
-
-div#wrapper
-{
-  width: 1000px;
-  margin: 20px auto 0 auto;
-}
-
-div#wrapper.admin
-{
-  background-color: white;
-  padding: 10px;
 }
 
 div#left {
@@ -51,26 +50,11 @@ div#menu {
   margin-bottom: 16px;
   height: 40px;
 }
-div#sign_up {
-  margin-bottom: 16px;
-  height: 40px;
-}
 
-div#sign_up a {
-  background-color: orangered;
-  color: white;
-  text-decoration: none;
-  padding: 7px 30px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  margin: auto;
-}
 
 div#content {
   vertical-align: top;
-  display: inline-block;
-  max-width: 790px;
+  width: 1000px;
 }
 
 div#feedbacks {
@@ -93,8 +77,8 @@ div.category.selected {
   font-weight: bold;
 }
 
-div.contacts {
-  font-family: 'Papirus';
+div.phones {
+  font-family: 'Papyrus';
 }
 
 div.category_image {

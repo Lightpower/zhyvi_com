@@ -51,14 +51,14 @@ ZH.events = {
 
       if(event) {
         row += '<div class="event" data-preview="' + event.preview + '">';
-        row += currentDate.getDate();
+        //row += currentDate.getDate();
         row += '<div>';
         row += event.title;
         row += '</div>';
         row += '<div class="tool-wrapper"><div class="tooltipContent">' + event.preview + '</div></div>';
         row += '</div>';
       }else{
-        row += currentDate.getDate();
+        //row += currentDate.getDate();
       }
 
       row += '</div>';

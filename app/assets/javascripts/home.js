@@ -18,9 +18,8 @@ ZH.carusel = {
     // Hide all category div's and category images
     $('div.category').removeClass("selected");
     $('div.category[data-index="' + next_number + '"]').addClass("selected");
-//        $('div.category_image').addClass("hidden");
-    $('div.category_image[data-index="' + current_number + '"]').fadeOut("slow");
-    $('div.category_image[data-index="' + next_number + '"]').fadeIn("slow");
+    $('div.category_image[data-index="' + current_number + '"]').fadeOut(3000);
+    $('div.category_image[data-index="' + next_number + '"]').fadeIn(3000);
     // Select next div and show next picture
   },
   next_number: function(number) {
@@ -35,5 +34,5 @@ ZH.carusel = {
 
 $(function() {
   ZH.carusel.step(1);
-  setInterval(function() { ZH.carusel.step(0); }, 3000);
+  setInterval(function() { ZH.carusel.step(0); }, 5000);
 });

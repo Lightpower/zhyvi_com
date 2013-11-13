@@ -1,0 +1,95 @@
+div#wrapper
+{
+  width: 1000px;
+  margin: 20px auto;
+}
+
+div#top {
+  width: 1000px;
+  height: 450px;
+  margin-bottom: 10px;
+
+  //border: 2px solid red;
+}
+
+div.left {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 220px;
+  height: 100%;
+  margin-right: 20px;
+}
+
+div.main {
+  display: inline-block;
+  width: 736px;
+}
+
+div#categories {
+
+}
+
+div#carusel {
+  background-color: white;
+  height: 430px;
+  padding: 10px;
+}
+
+div#middle {
+  width: 1000px;
+  height: 64px;
+
+  //border: 2px solid red;
+}
+
+div#button {
+  font-family: 'Papyrus';
+  display: inline-block;
+  margin-top: 15px;
+}
+
+div#button a {
+  background-color: orangered;
+  color: white;
+  text-decoration: none;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 5px 30px;
+}
+
+div#user {
+  display: inline-block;
+  font-family: 'Times';
+  font-size: 1.4em;
+  margin: 10px 0 0 0;
+}
+
+div#contacts {
+  float: right;
+  display: inline-block;
+  //border: 1px solid blue;
+
+}
+
+//div#content {
+//  width: 1000px;
+//
+//}
+
+div#feedbacks {
+
+}
+
+div#calendar {
+
+}
+
+div#calendar_small {
+
+}
+
+div#article {
+
+}
