@@ -1,0 +1,10 @@
+<div id="article" name="article">
+  <h1><%= article.try(:category_name) %></h1>
+  <%= article.try(:data) %>
+</div>
+
+
+<div id="calendar-wrapper" name="calendar-wrapper" class="small shadow">
+  <h1>КАЛЕНДАРЬ</h1>
+  <div id="calendar_small" name="calendar_small" data-url="<%= calendar_events_path %>"></div>
+</div>
