@@ -7,7 +7,13 @@ ZH.events = {
   reload: function(startDate) {
     var events,
         calendarDiv = $("div#calendar"),
-        actionUrl = calendarDiv.data("url");
+        calendarDivSmall = $("div#calendar_small"),
+        full = calendarDiv.length > 0,
+        actionUrl;
+    if(!full) {
+      calendarDiv = calendarDivSmall;
+    }
+    actionUrl = calendarDiv.data("url");
 
     $.ajax({
       type: 'GET',
@@ -16,21 +22,26 @@ ZH.events = {
       data: { start_date: startDate }
     }).done(function(message) {
         events = message;
-        calendarDiv.html(ZH.events.build(startDate, events));
+        calendarDiv.html(ZH.events.build(startDate, events, full));
       });
 
   },
 
-  build: function(startDate, events) {
+  build: function(startDate, events, full) {
+    if(full) return ZH.events.build_full(startDate, events);
+        else return ZH.events.build_small(startDate, events);
+  },
+
+  build_full: function(startDate, events) {
     var firstDate = ZH.events.calendarStart(startDate),
-        lastDate  = ZH.events.calendarEnd(startDate),
-        currentDate = firstDate,
-        // Month row
-        calendar  = '<div class="month">' + monthName(startDate) + '</div>',
-        event,
-        row = '',
-        i = 0,
-        days = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+      lastDate  = ZH.events.calendarEnd(startDate),
+      currentDate = firstDate,
+    // Month row
+      calendar  = '<div class="month">' + monthName(startDate) + '</div>',
+      event,
+      row = '',
+      i = 0,
+      days = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
 
     // Days on week row
     calendar  += '<div class="calendar row">';
@@ -50,12 +61,13 @@ ZH.events = {
       event = events[dateToDMY(currentDate)];
 
       if(event) {
-        row += '<div class="event" data-preview="' + event.preview + '">';
+        color = 'style="background-color: ' + event.color + ';"';
+        row += '<div class="event" ' + color + ' data-preview="' + event.preview + '">';
         //row += currentDate.getDate();
         row += '<div>';
         row += event.title;
         row += '</div>';
-        row += '<div class="tool-wrapper"><div class="tooltipContent">' + event.preview + '</div></div>';
+        row += '<div class="tool-wrapper"><div class="tooltipContent" ' + color + '>' + event.preview + '</div></div>';
         row += '</div>';
       }else{
         //row += currentDate.getDate();
@@ -71,8 +83,41 @@ ZH.events = {
     return calendar;
   },
 
-  showHint: function(owner) {
+  build_small: function(startDate, events) {
+    var firstDate = ZH.events.calendarStart(startDate),
+      lastDate  = ZH.events.calendarEnd(startDate),
+      currentDate = firstDate,
+      calendar ='',
+      event,
+      row = '',
+      color;
 
+    // Main calendar rows
+    for(; currentDate <= lastDate; currentDate = nextDate(currentDate)) {
+      if(currentDate.getDay() == 1) {
+        row = '<div class="row">';
+      }
+
+      row += '<div class="day">';
+      event = events[dateToDMY(currentDate)];
+
+      if(event) {
+        color = 'style="background-color: ' + event.color + ';"';
+        row += '<div class="event" ' + color + ' data-preview="' + event.preview + '">';
+        row += '<div class="tool-wrapper"><div class="tooltipContent" ' + color + '>' + event.preview + '</div></div>';
+        row += '</div>';
+      }else{
+        //row += currentDate.getDate();
+      }
+
+      row += '</div>';
+      if(currentDate.getDay() == 0) {
+        row += '</div>'
+        calendar += row;
+      }
+    }
+
+    return calendar;
   },
 
   calendarStart: function(date) {
@@ -107,6 +152,6 @@ $(function() {
     mouseleave: function () {
       $("> div.tool-wrapper", this).fadeOut(function() {$(this).css("marginLeft", "");});
     }
-  }, "#calendar .event"); //pass the element as an argument to .on
+  }, "#calendar-wrapper .event"); //pass the element as an argument to .on
 
 });

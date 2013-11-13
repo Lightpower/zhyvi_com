@@ -33,6 +33,12 @@ ZH.carusel = {
 };
 
 $(function() {
+  // Clear old setIntervals if any
+  var i;
+  for(i=0; i<=9999; i++) {
+    window.clearInterval(i);
+  }
+
   ZH.carusel.step(1);
-  setInterval(function() { ZH.carusel.step(0); }, 5000);
+  ZH.carusel.caruselId = setInterval(function() { ZH.carusel.step(0); }, 5000);
 });
