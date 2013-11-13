@@ -41,7 +41,8 @@ ZH.events = {
       event,
       row = '',
       i = 0,
-      days = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+      days = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'],
+      color, dataId, dataPreview;
 
     // Days on week row
     calendar  += '<div class="calendar row">';
@@ -61,13 +62,15 @@ ZH.events = {
       event = events[dateToDMY(currentDate)];
 
       if(event) {
-        color = 'style="background-color: ' + event.color + ';"';
-        row += '<div class="event" ' + color + ' data-preview="' + event.preview + '">';
+        color = ' style="background-color: ' + event.color + ';"';
+        dataId = ' data-id="' + event.id + '"';
+        dataPreview = ' data-preview="' + event.preview + '"';
+        row += '<div class="event"' + color + dataId + dataPreview + '>';
         //row += currentDate.getDate();
         row += '<div>';
         row += event.title;
         row += '</div>';
-        row += '<div class="tool-wrapper"><div class="tooltipContent" ' + color + '>' + event.preview + '</div></div>';
+        row += '<div class="tool-wrapper"><div class="tooltipContent"' + color + '>' + event.preview + '</div></div>';
         row += '</div>';
       }else{
         //row += currentDate.getDate();
@@ -90,7 +93,7 @@ ZH.events = {
       calendar ='',
       event,
       row = '',
-      color;
+      color, dataId, dataPreview;
 
     // Main calendar rows
     for(; currentDate <= lastDate; currentDate = nextDate(currentDate)) {
@@ -102,9 +105,11 @@ ZH.events = {
       event = events[dateToDMY(currentDate)];
 
       if(event) {
-        color = 'style="background-color: ' + event.color + ';"';
-        row += '<div class="event" ' + color + ' data-preview="' + event.preview + '">';
-        row += '<div class="tool-wrapper"><div class="tooltipContent" ' + color + '>' + event.preview + '</div></div>';
+        color = ' style="background-color: ' + event.color + ';"';
+        dataId = ' data-id="' + event.id + '"';
+        dataPreview = ' data-preview="' + event.preview + '"';
+        row += '<div class="event"' + color + dataId + dataPreview + ' >';
+        row += '<div class="tool-wrapper"><div class="tooltipContent"' + color + '>' + event.preview + '</div></div>';
         row += '</div>';
       }else{
         //row += currentDate.getDate();
@@ -127,6 +132,11 @@ ZH.events = {
   calendarEnd: function(date) {
     var lastDate = new Date(date.getFullYear(), date.getMonth() + 1, 0);
     return new Date(lastDate.getTime() + (7 - (lastDate.getDay() || 7))* ZH.events.days);
+  },
+
+  show: function(event) {
+    var url = $(event).parents('div#calendar-wrapper').data('url') + '/' + $(event).data('id') + '?js=1';
+    window.location = url;
   }
 };
 
@@ -154,4 +164,7 @@ $(function() {
     }
   }, "#calendar-wrapper .event"); //pass the element as an argument to .on
 
+  $(document).on("click", "div.event, dev.event .tooltipContent", function() {
+    ZH.events.show(this);
+  });
 });

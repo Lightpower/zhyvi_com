@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    show_with_calendar if params[:js] == '1'
   end
 
   # GET /events/new
@@ -78,8 +79,15 @@ class EventsController < ApplicationController
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:type, :title, :preview, :data, :start_at, :finish_at, :user_id, :color)
-    end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:type, :title, :preview, :data, :start_at, :finish_at, :user_id, :color)
+  end
+
+  # Show event for site, not for admin
+  def show_with_calendar
+    event = Event.find_by_id(params[:id])
+    render 'events/show_with_calendar',  layout: 'application', locals: {event: event}
+  end
 end

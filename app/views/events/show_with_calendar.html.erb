@@ -1,6 +1,10 @@
-<div id="article" name="article">
-  <h1><%= article.try(:category_name) %></h1>
-  <%= article.try(:data) %>
+<div id="event" name="event">
+  <% if event %>
+    <h1><%= event.title %></h1>
+    <p>Начало: <%= content_tag(:b, format(event.start_at)) %></p>
+    <h2>Описание</h2>
+    <p><%= event.data %></p>
+  <% end %>
 </div>
 
 

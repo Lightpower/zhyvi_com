@@ -7,6 +7,7 @@ module EventsPresenter
     ret_val = {}
     events.each do |event|
       ret_val[event.start_at.strftime('%d.%m.%Y')] = {
+        id: event.id,
         title: event.title,
         preview: event.preview,
         color: event.calculate_color
