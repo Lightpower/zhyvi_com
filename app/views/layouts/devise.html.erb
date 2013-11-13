@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ZhyviCom</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrapper" name="wrapper" class="devise">
+    <%= show_flash %>
+    <div id="content" name="content">
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>
