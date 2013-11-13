@@ -6,27 +6,45 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="wrapper" name="wrapper">
-    <%= show_flash %>
-    <div id="left" name="left">
-      <div class="top_div">
-        <div class="image"></div>
-        <%= category_divs %>
+<div id="wrapper" name="wrapper">
+  <%= show_flash %>
 
-      </div>
-      <div id="sign_up" name="sign_up">
-        <%= link_to 'ВЫХОД', destroy_user_session_path, method: :delete if current_user %>
-        <%= link_to 'РЕГИСТРАЦИЯ', new_user_registration_path unless current_user %>
-      </div>
-      <div id="feedbacks" name="feedbacks" class="shadow">
-        <%= render 'feedbacks/selected_list', feedbacks: selected_list %>
-      </div>
+  <div id="top" name="top">
+    <div id="categories" name="categories" class="left">
+      <a href="/"><div class="logo"></div></a>
+      <%= category_divs %>
     </div>
 
-    <div id="content" name="content">
-      <%= yield %>
+    <div id="carusel" name="carusel" class="main">
+      <%= category_images %>
     </div>
   </div>
-  <%= javascript_include_tag "application" %>
+
+  <div id="middle" name="middle">
+    <div id="button" name="button" class="left">
+        <%= link_to 'ВЫХОД', destroy_user_session_path, method: :delete, class: 'shadow' if current_user %>
+        <%= link_to 'РЕГИСТРАЦИЯ', new_admins_user_registration_path, class: 'shadow' unless current_user %>
+    </div>
+
+    <div id="user" name="user">
+      <%= render admins_user_path(current_user) if current_user %>
+      <%= render 'devise/sessions/short_new', resource: User, resource_name: User unless current_user %>
+    </div>
+
+    <div id="contacts" name="contacts">
+      <%= render 'home/contacts' %>
+    </div>
+  </div>
+
+  <div id="content" name="content">
+    <div id="feedbacks" name="feedbacks" class="left">
+      <%= render 'feedbacks/selected_list', feedbacks: selected_list %>
+    </div>
+
+    <%= yield %>
+
+  </div>
+</div>
+<%= javascript_include_tag "application" %>
 </body>
 </html>
