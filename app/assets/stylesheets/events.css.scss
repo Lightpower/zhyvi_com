@@ -7,6 +7,10 @@ div#calendar-wrapper {
   padding: 0 10px 10px 10px;
 }
 
+div#calendar-wrapper.small {
+  float: right;
+}
+
 div#calendar {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -35,7 +39,7 @@ div.calendar.th_first {
   -moz-border-radius: 0px;
   border-radius: 0px;
   border-style: none;
-  width: 14%;
+  width: 15%;
   height: 40px;
   margin: 0px;
   vertical-align: bottom;
@@ -61,7 +65,7 @@ div.calendar.day_first {
   -moz-border-radius: 0px;
   border-radius: 0px;
   border-style: none;
-  width: 14%;
+  width: 15%;
   height: 100px;
   margin: 0px;
   vertical-align: bottom;
@@ -79,6 +83,42 @@ div.calendar.day {
   margin: 0px;
   vertical-align: bottom;
   text-align: center;
+}
+
+div#calendar_small {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  width: 220px;
+  background-color: lightgrey;
+  padding: 10px;
+}
+
+div#calendar_small .row {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  height: 30px;
+  border: none;
+}
+
+div#calendar_small .day {
+  display: inline-block;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  background-color: lightgrey;
+  width: 30px;
+  height: 30px;
+  border: none;
+  margin: 0px;
+  vertical-align: bottom;
+}
+
+div#calendar_small.event {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 div.event {
@@ -99,8 +139,6 @@ div.event div {
   width: 100%;
   color: #ffffff;
 }
-
-
 
 div.event > div.tool-wrapper {
   display: none;

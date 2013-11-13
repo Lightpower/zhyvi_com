@@ -79,17 +79,18 @@ div#contacts {
 //}
 
 div#feedbacks {
-
-}
-
-div#calendar {
-
-}
-
-div#calendar_small {
-
+  background-color: white;
+  color: grey;
 }
 
 div#article {
+  display: inline-block;
+  width: 415px;
+  min-height: 400px;
+  height: inherit;
+  background-color: white;
+  padding: 0 30px;
 
 }
+
+

@@ -80,7 +80,6 @@ class EventsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      binding.pry
-      params.require(:event).permit(:type, :title, :preview, :data, :start_at, :finish_at, :user_id)
+      params.require(:event).permit(:type, :title, :preview, :data, :start_at, :finish_at, :user_id, :color)
     end
 end

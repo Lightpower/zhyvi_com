@@ -23,11 +23,11 @@
   <div id="middle" name="middle">
     <div id="button" name="button" class="left">
         <%= link_to 'ВЫХОД', destroy_user_session_path, method: :delete, class: 'shadow' if current_user %>
-        <%= link_to 'РЕГИСТРАЦИЯ', new_admins_user_registration_path, class: 'shadow' unless current_user %>
+        <%= link_to 'РЕГИСТРАЦИЯ', new_user_registration_path, class: 'shadow' unless current_user %>
     </div>
 
     <div id="user" name="user">
-      <%= render admins_user_path(current_user) if current_user %>
+      <%= render 'users/current_user' if current_user %>
       <%= render 'devise/sessions/short_new', resource: User, resource_name: User unless current_user %>
     </div>
 

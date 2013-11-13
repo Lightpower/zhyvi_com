@@ -13,4 +13,8 @@ class Category
   def self.all
     ALL
   end
+
+  def self.find(id)
+    ALL.select { |i| i[:id] == id.to_i }.first
+  end
 end

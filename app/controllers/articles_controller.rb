@@ -6,7 +6,11 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    if params[:articles] && params[:articles][:category_id]
+      show_by_category
+    else
+      @articles = Article.all
+    end
   end
 
   # GET /articles/1
@@ -67,6 +71,12 @@ class ArticlesController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:type, :title, :preview, :data, :user_id)
+      params.require(:article).permit(:type, :title, :preview, :data, :user_id, :category_id)
     end
+
+  def show_by_category
+    category = Category.find(params[:articles][:category_id]) || {id: 0}
+    article = Article.where(category_id: category[:id]).first
+    render 'articles/show_by_category', layout: 'application', locals: {category: category, article: article}
+  end
 end
